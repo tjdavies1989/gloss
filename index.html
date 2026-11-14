@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Gloss: point at anything in Street View and ask what it is</title>
+<meta name="description" content="Gloss is a Chrome extension for Google Street View. Hold Option, drag a box over a sign, a menu, a poster or a building, and it tells you what it says or what it is, in English.">
+<meta name="theme-color" content="#93cffb">
+<meta name="color-scheme" content="light">
+<link rel="icon" type="image/svg+xml" href="assets/gloss-16.svg">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to the page</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+  <filter id="soft" x="-10%" y="-20%" width="120%" height="140%"><feGaussianBlur stdDeviation="4"/></filter>
+  <linearGradient id="cl" gradientUnits="userSpaceOnUse" x1="0" y1="20" x2="0" y2="158"><stop offset=".3" stop-color="#fff"/><stop offset="1" stop-color="#d9ecfc"/></linearGradient>
+  <symbol id="cloud" viewBox="0 0 400 170"><g filter="url(#soft)" fill="url(#cl)"><ellipse cx="200" cy="126" rx="174" ry="28"/><circle cx="110" cy="104" r="42"/><circle cx="174" cy="72" r="56"/><circle cx="248" cy="86" r="48"/><circle cx="304" cy="110" r="34"/></g></symbol>
+  <symbol id="dl" viewBox="0 0 24 24"><path d="M12 3.5v12M6.5 10.5 12 16l5.5-5.5M4.500 20.500h15" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="send" viewBox="0 0 24 24"><path d="M12 15.5v-12M7 8l5-4.5L17 8M5 12.5v7.5h14v-7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="arrow" viewBox="0 0 20 26"><path d="M2 1.500v19.500l5-4.500 3.300 7.700 3.200-1.400-3.300-7.600h6.800z" fill="#fff" stroke="#0b2b55" stroke-width="1.6" stroke-linejoin="round"/></symbol>
+</defs></svg>
+<div class="sky" aria-hidden="true">
+  <svg class="cloud c2"><use href="#cloud"/></svg><svg class="cloud c3"><use href="#cloud"/></svg><svg class="cloud c4"><use href="#cloud"/></svg><svg class="cloud c5"><use href="#cloud"/></svg>
+</div>
+
+<header class="nav wrap">
+  <div class="g" id="dock"><nav class="core" aria-label="On this page">
+    <a class="brand" href="#top" data-gloss="Gloss|The name of this extension, and a small comma of blue glass."><img src="assets/gloss-16.svg" width="24" height="24" alt="">Gloss</a>
+    <ul>
+      <li class="opt"><a href="#how">How you use it</a></li>
+      <li class="opt"><a href="#get">What you get</a></li>
+      <li><a href="#install">Install</a></li>
+      <li><a href="#keys">Keys</a></li>
+      <li class="opt"><a href="#fine">Fine print</a></li>
+    </ul>
+    <a class="get blue" href="Gloss-0.3.0.zip" download data-gloss="Download|It fetches Gloss-0.3.0.zip. That one is real.">
+      <svg aria-hidden="true"><use href="#dl"/></svg>Download</a>
+  </nav></div>
+</header>
+
+<main id="main">
+
+<section class="hero wrap" id="top" data-gloss="Sky|Nothing to read here. It is a nice blue, though.">
+  <div class="skynote n1" aria-hidden="true">
+    <svg class="cloud"><use href="#cloud"/></svg>
+    <span class="mark quiet"><i></i><i></i><i></i><i></i></span>
+    <span class="g pill thing"><span class="blue"><img class="drop" src="assets/gloss-16.svg" width="13" height="13" alt=""><span>A cloud</span></span></span>
+  </div>
+  <div class="skynote n2" aria-hidden="true">
+    <span class="ring"></span><span class="line"></span>
+    <span class="g pill thing"><span class="blue"><img class="drop" src="assets/gloss-16.svg" width="13" height="13" alt=""><span>Sky, mostly</span></span></span>
+  </div>
+
+  <div class="logo" data-gloss="The Gloss logo|A comma, made of blue glass."><img src="assets/gloss.svg" width="148" height="148" alt="The Gloss logo: a comma made of blue glass"></div>
+  <div class="name">
+    <h1 data-gloss="Gloss|The name of the thing you are reading about.">Gloss</h1>
+    <p class="defn" data-gloss="A gloss on Gloss|A note written beside the name, to explain it."><b>gloss</b>, <i>noun:</i> a note written beside a text to explain it.</p>
+  </div>
+  <p class="tagline" data-gloss="“Point at stuff and go ‘what?’”|Why it was made. Also the whole manual.">Point at stuff and go “what?”</p>
+  <p class="lede" data-gloss="What Gloss is|Three sentences. You have just read them.">Gloss is a Chrome extension for Google Street View. Hold <kbd data-key>⌥ Option</kbd> and drag a box over a sign, a menu, a poster or a building. It tells you what it says or what it is, in English.</p>
+
+  <div class="cta">
+    <a class="g btn desk" href="Gloss-0.3.0.zip" download data-gloss="Download button|It fetches Gloss-0.3.0.zip. That one is real.">
+      <span class="blue"><svg aria-hidden="true"><use href="#dl"/></svg><span class="t">Download Gloss</span></span>
+    </a>
+    <button type="button" class="g btn phone" data-send>
+      <span class="blue"><svg aria-hidden="true"><use href="#send"/></svg><span class="t">Send to my computer</span></span>
+    </button>
+    <p class="ver" data-gloss="The line beside the button|The version, and whose keys it runs on."><b><span class="desk">Version 0.3.0, for Chrome on a computer</span><span class="phone">Gloss runs in Chrome on a computer</span></b>
+      It runs on shared keys until <span class="date">14 December 2026</span>. Then you bring your own.
+      <a class="phone anyway" href="Gloss-0.3.0.zip" download>Download the zip anyway</a></p>
+  </div>
+  <p class="tryit" data-gloss="An invitation|Accepted."><strong>Try it here.</strong> Hold <kbd data-key>⌥ Option</kbd> and drag a box over a cloud.</p>
+
+  <!-- The demo film. The still (demo.jpg) is what shows first, and what people with reduced motion keep.
+       The film is switched on by data-demo="demo.mp4" on the div below (class "g frame"); take that attribute off and the page asks for no film at all. -->
+  <figure class="shot">
+    <div class="g frame" id="demo" data-demo="demo.mp4" data-from="11.4">
+      <div class="screen" data-gloss="Akihabara, Tokyo|A Street View picture with a Gloss card open on a camera shop's sign.">
+        <img src="demo.jpg" width="1400" height="813" alt="Street View in Akihabara, Tokyo. A box is drawn round the red Bic Camera sign above a shop front, and Gloss has drawn the English, Bic Camera, over the Japanese on the sign. Beside it a blue glass card reads: Bic Camera, a Japanese electronics retailer's store sign, with the Japanese underneath, how to say it, and a short note about the shop." fetchpriority="high">
+        <span class="credit">Imagery © Google</span>
+      </div>
+    </div>
+    <figcaption data-gloss="A caption|It says what the picture above shows.">A sign in Akihabara, boxed and answered. The card belongs to the sign: turn the view and it stays put.</figcaption>
+  </figure>
+</section>
+
+<section class="sec wash wrap" id="how">
+  <div class="head">
+    <p class="eyebrow">How you use it</p>
+    <h2>Three ways to point</h2>
+    <p>Each one starts with <kbd data-key>⌥ Option</kbd> held down. <span data-key-note>On Windows and Linux the key is Alt.</span> Without it, Gloss leaves your clicks and drags alone, apart from a click on one of its own labels.</p>
+  </div>
+
+  <div class="gestures">
+    <article class="g gest"><div class="core">
+      <div class="vig" aria-hidden="true"><div class="st">
+        <span class="sign">営業中</span>
+        <span class="mark"><i></i><i></i><i></i><i></i></span>
+        <svg class="cursor a"><use href="#arrow"/></svg>
+        <span class="g pill"><span class="blue"><span class="dots"><b></b><b></b><b></b></span><span>Reading</span></span></span>
+      </div></div>
+      <p class="keys"><kbd data-key>⌥ Option</kbd> + <span class="act">drag</span></p>
+      <h3>Draw a box</h3>
+      <p class="say">Drag a box round the thing. A chip says Reading, then grows into the answer.</p>
+    </div></article>
+
+    <article class="g gest"><div class="core">
+      <div class="vig" aria-hidden="true"><div class="st">
+        <svg class="lantern" viewBox="0 0 74 106"><rect x="34" y="0" width="6" height="12" fill="#3b4a5c"/><rect x="22" y="10" width="30" height="9" rx="2" fill="#2a3644"/><ellipse cx="37" cy="54" rx="34" ry="38" fill="#e2573f"/><ellipse cx="27" cy="44" rx="13" ry="22" fill="#fff" opacity=".16"/><g fill="none" stroke="#b63a28" stroke-width="1.6" opacity=".8"><path d="M7 38c20 5 40 5 60 0M3.500 54c22 5 45 5 67 0M7 70c20 5 40 5 60 0M17 26c13 3 27 3 40 0M17 82c13 3 27 3 40 0"/></g><rect x="22" y="89" width="30" height="9" rx="2" fill="#2a3644"/><path d="M37 98v8" stroke="#3b4a5c" stroke-width="3"/></svg>
+        <span class="ring"></span>
+        <svg class="cursor b"><use href="#arrow"/></svg>
+        <span class="g pill thing low"><span class="blue"><img class="drop" src="assets/gloss-16.svg" width="13" height="13" alt=""><span>Paper lantern</span></span></span>
+      </div></div>
+      <p class="keys"><kbd data-key>⌥ Option</kbd> + <span class="act">click</span></p>
+      <h3>This thing here</h3>
+      <p class="say">Click a spot when a box is more than you need. A small ring marks it, with its label and card.</p>
+    </div></article>
+
+    <article class="g gest"><div class="core">
+      <div class="vig" aria-hidden="true"><div class="st">
+        <span class="sign">営業中</span>
+        <span class="mark"><i></i><i></i><i></i><i></i></span>
+        <span class="g compose"><span class="blue"><span class="q">Is it open on Sundays?<i class="caret"></i></span><span class="ret">⏎</span></span></span>
+      </div></div>
+      <p class="keys"><kbd data-key>⌥ Option</kbd> + <kbd data-shift>⇧ Shift</kbd> + <span class="act">drag</span></p>
+      <h3>Ask your own question</h3>
+      <p class="say">Drag the box, then type what you want to know. Enter sends it. Esc cancels.</p>
+    </div></article>
+  </div>
+
+  <div class="g rest"><div class="core">
+    <div class="media" data-gloss="Three labels|Pharmacy. Open 10:00 to 21:00. No parking.">
+      <img src="assets/captions.webp" width="920" height="240" loading="lazy" alt="Three small blue glass labels on a street in Tokyo, each under the thing it names: Pharmacy; Open 10:00 to 21:00; No parking.">
+      <span class="credit t">Imagery © Google</span>
+    </div>
+    <div class="text">
+      <h3>Click a label to open its card</h3>
+      <p>A finished answer rests as a small label under the thing. Click it for the whole card. Click anywhere else, or press Esc, to close it.</p>
+    </div>
+  </div></div>
+
+  <p class="tryit after">All three work on this page. It is rigged, though: it only knows about itself. The real thing reads whatever you box.</p>
+</section>
+
+<section class="sec wash b wrap" id="get">
+  <div class="head">
+    <p class="eyebrow">What you get</p>
+    <h2>The answer belongs to the thing</h2>
+    <p>No sidebar and no chat window. What you asked stays on the spot where you asked it.</p>
+  </div>
+
+  <div class="gets">
+    <article class="g tile t-card"><div class="core">
+      <div class="media" data-gloss="A Gloss card|Camera, TV, video camera, drone. The Japanese is underneath, then a note.">
+        <img src="assets/card.webp" width="752" height="770" loading="lazy" alt="A Gloss card close up. Headline: Camera, TV, video camera, drone. Under it the Japanese text and how it is said, then a note beside a thin aqua bar: Bic Camera lists what the floor sells. At the bottom, an Ask button.">
+        <span class="credit">Imagery © Google</span>
+      </div>
+      <div class="text">
+        <h3>The card</h3>
+        <p>The answer first, in English. Under it the original writing and how to say it, and a note only when one is worth having. Ask a follow-up and the reply is added to the same card.</p>
+        <p>The three dots copy either text, delete the note, and show how long the answer took.</p>
+      </div>
+    </div></article>
+
+    <article class="g tile t-saved"><div class="core">
+      <div class="media" data-gloss="The saved list|Five saved notes from one street corner in Tokyo.">
+        <img src="assets/notebook.webp" width="800" height="500" loading="lazy" alt="Street View in Tokyo with two labels on shop signs, and at the right the open saved list with five notes: Bic Camera; Camera, TV, video camera; Akihabara sale banner; Audio and smartphones; Game centre.">
+        <span class="credit l">Imagery © Google</span>
+      </div>
+      <div class="text">
+        <h3>Notes that are still there</h3>
+        <p>Every finished answer is saved by itself. Come back next week and your notes are where you left them.</p>
+        <p>The pill at the top right counts the notes on this view. Click it for the saved list: notes here, notes within 150 m and the latest 20. Its foot sets how much shows: Labels, Dots or Off.</p>
+        <p>Step up the street, within about 120 m, and they are still there. From another spot Gloss does not pretend to know exactly where the sign is: a small ring and a label mean “about here”, and one press takes you back to where you asked.</p>
+      </div>
+    </div></article>
+
+    <article class="g tile t-over"><div class="core">
+      <div class="media ba" data-gloss="Dotonbori, Osaka|Slide the bar. Left is the street as it is. Right is the same street with its English.">
+        <img src="assets/osaka-after.webp" width="1200" height="697" loading="lazy" alt="A street in Dotonbori, Osaka, under a giant model crab. With Gloss, the restaurant's sign reads Kani Doraku Main Branch in English, drawn over the sign itself, and small round dots mark the other signs that have notes.">
+        <div class="before"><img src="assets/osaka-before.webp" width="1200" height="697" loading="lazy" alt="The same street without Gloss: the signs are in Japanese."></div>
+        <span class="tag l" aria-hidden="true">As it is</span><span class="tag r" aria-hidden="true">With Gloss</span>
+        <input type="range" min="0" max="100" value="46" step="1" aria-label="Slide to compare the street as it is with the street with Gloss">
+        <span class="bar"></span>
+        <span class="g knob"><span class="blue"><svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.500 4.500 2.500 9l4 4.500M11.500 4.500l4 4.500-4 4.500"/></svg></span></span>
+        <span class="credit">Imagery © Google</span>
+      </div>
+      <div class="text">
+        <div>
+        <h3>English, drawn over the sign</h3>
+        <p>Where Gloss can place it reliably, the English is drawn on the sign itself, line by line, on the sign’s own colour. It follows the picture as you look around.</p>
+        <p>It is strict about “reliably”. A label on the wrong line is worse than none, so some signs get it and the rest keep their English in the card.</p>
+        <p class="hint">Slide the bar: the street as it is on the left, with Gloss on the right.</p>
+        </div>
+        <div class="aside">
+          <div class="media" data-gloss="A theatre poster in Moscow|The Magic Lamp of Aladdin.">
+            <img src="assets/arbat.webp" width="560" height="420" loading="lazy" alt="A theatre poster in Moscow. Over its Russian title, three English labels read: The Magic, Lamp, of Aladdin.">
+            <span class="credit">Imagery © Google</span>
+          </div>
+          <small>It is not only Japanese. A theatre poster in Moscow, three lines of it.</small>
+        </div>
+      </div>
+    </div></article>
+
+    <article class="g tile t-paint"><div class="core">
+      <div class="pair">
+        <div class="media was" data-gloss="A crab restaurant's sign|Before the repaint. It is in Japanese.">
+          <img src="assets/repaint-before.webp" width="840" height="370" loading="lazy" alt="A shop front in Osaka with red lanterns. Its long cream sign is in Japanese.">
+          <span class="tag">Before</span><span class="credit">Imagery © Google</span>
+        </div>
+        <div class="media now" id="repaint" data-gloss="The same sign, repainted|Dotonbori specialty: charcoal-grilled crab. Hold the badge for the original.">
+          <img src="assets/repaint-after.webp" width="840" height="370" loading="lazy" alt="The same shop front after the repaint. The sign now reads, in red lettering of the same style: Dotonbori specialty, charcoal-grilled crab.">
+          <img class="under" src="assets/repaint-before.webp" width="840" height="370" loading="lazy" alt="">
+          <span class="tag">After</span>
+          <span class="caps">
+            <button type="button" class="g pill badge" id="hold" aria-pressed="false" aria-label="AI repaint: hold to see the original"><span class="blue"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M7 1.500l1.400 3.700 3.700 1.400-3.700 1.400L7 11.700 5.600 8 1.900 6.600l3.700-1.400zM12.600 9.800l.7 1.800 1.800.7-1.800.7-.7 1.800-.7-1.800-1.800-.7 1.800-.7z"/></svg><span>AI repaint</span></span></button>
+          </span>
+          <span class="credit">Imagery © Google</span>
+        </div>
+      </div>
+      <div class="text">
+        <h3>Repaint</h3>
+        <p>The card’s Repaint button asks an image model to letter the English onto the sign, in the sign’s own style. It takes about 20 to 30 seconds, or up to two minutes when the first try fails its check and it tries again.</p>
+        <p>Nothing is shown unless it passes a check. Gloss reads the result back without being told what it should say, and every word must match. The picture around the lettering must be unchanged. One that fails twice is never shown.</p>
+        <p class="hint">Press and hold the AI repaint badge to see the original. It works the same way in Gloss.</p>
+      </div>
+    </div></article>
+  </div>
+</section>
+
+<section class="sec wash wrap" id="install">
+  <div class="head">
+    <p class="eyebrow">Install</p>
+    <h2>Six steps, by hand</h2>
+    <p>Gloss is not in the Chrome Web Store. You load it into Chrome from a folder.</p>
+  </div>
+
+  <div class="g install"><div class="core">
+    <div class="grab">
+      <p class="say"><b>Gloss 0.3.0</b> <span>One zip. Two shared keys are built in, so there is nothing to sign up for.</span></p>
+      <a class="g btn" href="Gloss-0.3.0.zip" download data-gloss="Download button|It fetches Gloss-0.3.0.zip. That one is real.">
+        <span class="blue"><svg aria-hidden="true"><use href="#dl"/></svg><span class="t">Gloss-0.3.0.zip</span></span>
+      </a>
+    </div>
+    <ol class="steps">
+      <li><h3>Download the zip</h3><p>The button above. It is the only download there is.</p></li>
+      <li><h3>Unzip it</h3><p>You get one folder, <code>Gloss-0.3.0</code>. Put it somewhere it can stay: Chrome runs the extension from that folder.</p></li>
+      <li><h3>Open the extensions page</h3><p>A web page may not link there, so paste this into Chrome’s address bar.</p>
+        <span class="copy"><code id="ext">chrome://extensions</code><button type="button" data-copy="ext">Copy</button></span></li>
+      <li><h3>Turn on Developer mode</h3><p>The switch is at the top right of that page.</p></li>
+      <li><h3>Press Load unpacked</h3><p>Pick the <code>Gloss-0.3.0</code> folder. Gloss appears in the list.</p></li>
+      <li><h3>Go into Street View</h3><p>Open Google Maps and go into Street View. If a Street View tab was already open, refresh it. Then hold <kbd data-key>⌥ Option</kbd> and drag.</p></li>
+    </ol>
+    <figure class="extfig">
+      <div class="chrome" aria-hidden="true" data-gloss="A drawing of Chrome's extensions page|Steps 4 and 5 are marked. It is not the real page.">
+        <div class="bar"><span class="lights"><i></i><i></i><i></i></span><span class="url">chrome://extensions</span></div>
+        <div class="exthead"><b>Extensions</b><span class="dev">Developer mode<span class="sw"></span><i class="pin">4</i></span></div>
+        <div class="exttools"><span class="tb on">Load unpacked<i class="pin">5</i></span><span class="tb">Pack extension</span><span class="tb last">Update</span></div>
+        <div class="extbody"><span class="extcard"><img src="assets/gloss-16.svg" width="26" height="26" alt=""><span><b>Gloss</b> <small>0.3.0</small></span><span class="sw"></span></span></div>
+      </div>
+      <figcaption>
+        <p><b>Steps 4 and 5</b>, marked on a drawing of Chrome’s extensions page.</p>
+        <p class="note">Chrome does not ask about permissions when you load a folder. Gloss does have one: to read and change your data on all websites. Its Details page shows it. <a href="#fine">Why it needs it</a> is in the fine print.</p>
+      </figcaption>
+    </figure>
+    <p class="note upd"><b>Updating.</b> Your notes and keys belong to the folder Chrome loaded. Put a new version’s files into that same folder and press the reload arrow on Gloss’s card. A second folder is a second Gloss: it starts empty, and the older one must be turned off, or both act on the page.</p>
+  </div></div>
+</section>
+
+<section class="sec wash b wrap" id="keys">
+  <div class="keysec">
+    <div class="say">
+      <p class="eyebrow">Keys</p>
+      <h2>Shared keys, until <span class="date">14 December</span></h2>
+      <p>Gloss runs on two shared keys that are built in, so there is nothing to set up. <strong>They stop on <span class="date">14 December 2026</span>.</strong> Everyone with this copy shares them and someone else pays, so go easy. The repaint key has a $20 limit in all.</p>
+      <p>When a shared key has expired or run out, the card says so and has a Settings button. Put your own in there: <b class="field">Anthropic key (reading)</b>, from the <a href="https://platform.claude.com/" rel="noopener">Anthropic Console</a>, and <b class="field">OpenRouter key (repaint)</b>, from <a href="https://openrouter.ai/keys" rel="noopener">openrouter.ai/keys</a>. You can add one and leave the other on the shared key.</p>
+      <p class="where">Settings also opens from the Gloss icon in Chrome’s toolbar (under the puzzle-piece menu until you pin it), and from the foot of the saved list. Your keys are kept in the extension’s own storage, in your browser.</p>
+    </div>
+    <div class="g ringbox"><div class="core" data-gloss="Two lanes|Shared keys from the start. Your own by 14 December 2026.">
+      <table class="lanes">
+        <thead><tr><td></td><th scope="col">From the start</th><th scope="col">Your own, by <span class="date">14 December 2026</span></th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Reading<small>every question and follow-up</small></th>
+            <td><span class="lane shared"><span>Shared key, built in</span></span></td>
+            <td><span class="lane own"><b>Anthropic key</b><small>a fraction of a cent each</small></span></td></tr>
+          <tr><th scope="row">Repaint<small>only when you press it</small></th>
+            <td><span class="lane shared"><span>Shared key, built in</span></span></td>
+            <td><span class="lane own"><b>OpenRouter key</b><small>2 to 5 cents each</small></span></td></tr>
+        </tbody>
+      </table>
+      <p class="until"><i></i><span>Reading is done by a vision model, Claude Haiku 5.5, so that key is an Anthropic one. A repaint is lettered by an image model, reached through OpenRouter. Your own key is used before the shared one. The prices are what you pay with your own keys. A repaint that has to try twice costs about 10 cents. Repaint uses both keys: the image model paints, and Claude checks the result.</span></p>
+    </div></div>
+  </div>
+</section>
+
+<section class="sec wrap" id="fine">
+  <div class="head">
+    <p class="eyebrow">The fine print</p>
+    <h2>In plain words</h2>
+  </div>
+  <div class="fine">
+    <div class="sends">
+      <div>
+        <h3>What it sends, and what it keeps</h3>
+        <p class="lead">Nothing goes to Anthropic or OpenRouter until you ask about something. Then this goes, and only this.</p>
+        <figure class="sent" data-gloss="Two pictures|The two that go with one question: what you boxed, and the whole view.">
+          <div class="pics">
+            <div><span class="thumb"><img src="assets/sent-crop.webp" width="310" height="80" loading="lazy" alt="A close crop of one shop sign: the red Japanese letters of Bic Camera."></span><p><i class="pin">1</i>What you boxed</p></div>
+            <div><span class="thumb"><img src="assets/sent-wide.webp" width="560" height="325" loading="lazy" alt="The whole Street View picture, with a pink outline drawn round the Bic Camera sign."></span><p><i class="pin">2</i>The whole view, with your box drawn on it</p></div>
+          </div>
+          <figcaption>The two pictures that go with one question: here, the one at the top of this page. Gloss hides its own cards and labels first. Picture 2 is the tab as you see it, Google’s panels included. Imagery © Google.</figcaption>
+        </figure>
+        <p class="note"><b>The permission.</b> Gloss has a wide one: to read and change your data on all websites. Taking the picture of the tab when you Option-drag, rather than click the toolbar icon, needs it. Gloss only runs on map pages.</p>
+      </div>
+      <div>
+        <dl>
+          <dt>Before you ask</dt>
+          <dd>Nothing goes to either service. Gloss only reads the panorama data that Google Maps loads for itself, and now and then asks Google for it once more.</dd>
+          <dt>To Anthropic, each time you ask</dt>
+          <dd>The part of the screen you boxed (for a click, a square around the point). A picture of the whole view, with your box drawn on it. The camera’s position to about a metre, the direction it faces and its field of view. The site’s name, such as www.google.com. Your question. A follow-up sends them again, with the answers so far.</dd>
+          <dt>To OpenRouter, only when you press Repaint</dt>
+          <dd>A picture of the sign and the English to letter onto it, for an image model. Anthropic then reads both the original and the result, to check it: up to twice if the first try fails.</dd>
+          <dt>Kept in your browser, and nowhere else</dt>
+          <dd>Your notes, their pictures, any repaints and the keys you add. Gloss has no server, no accounts and no analytics. Settings has Delete all saved notes.</dd>
+        </dl>
+      </div>
+    </div>
+    <div class="limits">
+      <h3>Limits</h3>
+      <ul>
+        <li><b>Chrome on a computer only.</b> Not phones, not tablets.</li>
+        <li><b>Made and tested on a Mac.</b> On Windows and Linux the key is Alt, and Gloss has not been tried there yet. On Linux some desktops use Alt-drag to move windows.</li>
+        <li><b>Notes show from up the street only on Google’s own panoramas that carry depth data.</b> Not in South Korea, and not on some older imagery. In a photo someone uploaded, a note stays in the view where you asked.</li>
+        <li><b>The model can misread small or blurred text.</b> It is asked to say when it is unsure, and usually does. Not always. Zoom in and ask again.</li>
+        <li><b>English drawn over a sign can now and then sit on the wrong line.</b> Gloss checks the shape of each line, not that the model put it in the right place.</li>
+        <li><b>Repaint is only for signs with writing.</b> It is not offered on a card seen from up the street.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="end">
+  <svg class="cloud e1" aria-hidden="true"><use href="#cloud"/></svg><svg class="cloud e2" aria-hidden="true"><use href="#cloud"/></svg>
+  <div class="wrap">
+    <div class="logo" data-gloss="The Gloss logo, again|Still a comma."><img src="assets/gloss.svg" width="92" height="92" alt="" loading="lazy"></div>
+    <h2>Go and point at something</h2>
+    <div class="cta">
+      <a class="g btn desk" href="Gloss-0.3.0.zip" download data-gloss="Download button|It fetches Gloss-0.3.0.zip. That one is real.">
+        <span class="blue"><svg aria-hidden="true"><use href="#dl"/></svg><span class="t">Download Gloss</span></span>
+      </a>
+      <button type="button" class="g btn phone" data-send>
+        <span class="blue"><svg aria-hidden="true"><use href="#send"/></svg><span class="t">Send to my computer</span></span>
+      </button>
+      <p class="ver"><b>Version 0.3.0</b> Shared keys until <span class="date">14 December 2026</span>.</p>
+    </div>
+    <div class="foot">
+      <p>A hobby project, built with Claude.</p>
+      <p>Street View imagery in the pictures © Google. Gloss is not made by Google or affiliated with it.</p>
+      <p>November 2026</p>
+    </div>
+  </div>
+</footer>
+
+<script src="assets/glass.js" defer></script>
+<script src="assets/site.js" defer></script>
+</body>
+</html>
