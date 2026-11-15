@@ -45,17 +45,26 @@
     input.addEventListener('input', set); set();
   });
 
-  /* 4. repaint: press and hold the badge to see the original underneath, as in Gloss */
-  var rp = $('#repaint'), hold = $('#hold');
-  if (rp && hold) {
-    var lab = hold.querySelector('.blue > span');
+  /* 4. repaint: each example fades between the original and the repaint a few times when it comes into view, then rests on the
+        repaint; press and hold its badge to see the original underneath, as in Gloss */
+  Array.prototype.forEach.call(document.querySelectorAll('[data-rp]'), function (rp, n) {
+    var hold = rp.querySelector('.badge'); if (!hold) return;
+    var lab = hold.querySelector('.blue > span'), timer = null, held = false;
     var orig = function (v) { rp.classList.toggle('orig', v); hold.classList.toggle('lit', v); hold.setAttribute('aria-pressed', String(v)); lab.textContent = v ? 'Original' : 'AI repaint'; };
-    hold.addEventListener('pointerdown', function (e) { if (e.altKey) return; try { hold.setPointerCapture(e.pointerId); } catch (x) {} orig(true); });
-    ['pointerup', 'pointercancel', 'lostpointercapture', 'blur'].forEach(function (n) { hold.addEventListener(n, function () { orig(false); }); });
-    hold.addEventListener('keydown', function (e) { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); orig(true); } });
-    hold.addEventListener('keyup', function (e) { if (e.key === ' ' || e.key === 'Enter') orig(false); });
+    var stop = function () { if (timer) { clearTimeout(timer); timer = null; } };
+    var press = function (v) { held = v; stop(); orig(v); };
+    hold.addEventListener('pointerdown', function (e) { if (e.altKey) return; try { hold.setPointerCapture(e.pointerId); } catch (x) {} press(true); });
+    ['pointerup', 'pointercancel', 'lostpointercapture', 'blur'].forEach(function (name) { hold.addEventListener(name, function () { if (held) press(false); }); });
+    hold.addEventListener('keydown', function (e) { if (e.key === ' ' || e.key === 'Enter') { e.preventDefault(); press(true); } });
+    hold.addEventListener('keyup', function (e) { if (e.key === ' ' || e.key === 'Enter') press(false); });
     hold.addEventListener('contextmenu', function (e) { e.preventDefault(); });
-  }
+    var calm = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (calm || !('IntersectionObserver' in window)) return;
+    var left = 3; // times the original is shown before the picture rests on the repaint
+    var cycle = function () { if (held) return; if (left <= 0) { orig(false); return; } left--; orig(true); timer = setTimeout(function () { orig(false); timer = setTimeout(cycle, 3400); }, 2000); };
+    var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting && left === 3 && !timer) { timer = setTimeout(cycle, 500 + n * 350); io.disconnect(); } }); }, { threshold: 0.55 });
+    io.observe(rp);
+  });
 
   /* 5. the demo film. Nothing is asked for unless the frame carries data-demo="demo.mp4".
         Then the film plays over the still, muted and looped, with a pause button; with reduced motion it waits for the button. */

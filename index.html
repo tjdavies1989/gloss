@@ -31,6 +31,7 @@
     <a class="brand" href="#top" data-gloss="Gloss|This extension is named Gloss and has a small blue glass comma as its logo."><img src="assets/gloss-16.svg" width="24" height="24" alt="">Gloss</a>
     <ul>
       <li class="opt"><a href="#how">Using Gloss</a></li>
+      <li class="opt"><a href="#repaint">Repaint</a></li>
       <li class="opt"><a href="#get">Gloss features</a></li>
       <li><a href="#install">Install</a></li>
       <li><a href="#keys">Keys</a></li>
@@ -146,7 +147,49 @@
   <p class="tryit after">All three gestures work on this page, using preset answers about the page itself. The extension reads any area you select.</p>
 </section>
 
-<section class="sec wash b wrap" id="get">
+<section class="sec wash b wrap" id="repaint">
+  <div class="head">
+    <p class="eyebrow">Repaint</p>
+    <h2>Signs repainted in English</h2>
+    <p>When you press the card’s Repaint button, Gloss sends the sign’s picture and the English to an image model, which paints the English onto the sign in the sign’s own style. Repaint works in any language, Vietnamese or Polish as well as Japanese.</p>
+  </div>
+  <div class="rps">
+    <figure class="g tile rp rp-tall"><div class="core">
+      <div class="media now" data-rp data-gloss="A menu board in Da Nang|Gloss repainted this Vietnamese menu board in English.">
+        <img src="assets/rp-danang-after.webp" width="804" height="896" loading="lazy" alt="A menu board outside an eatery in Da Nang after a repaint. Its lettering is now in English, in the board’s own red and blue: Thủy Eatery, Vermicelli, crab cake, fresh fish, fish cake, crab broth, Quảng noodles, country chicken. A green strip reads: Fish cake orders taken, delivered on request. The phone number below it is unchanged.">
+        <img class="under" src="assets/rp-danang-before.webp" width="804" height="896" loading="lazy" alt="">
+        <span class="caps"><button type="button" class="g pill badge" aria-pressed="false" aria-label="AI repaint: hold to see the original"><span class="blue"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M7 1.500l1.400 3.700 3.700 1.400-3.700 1.400L7 11.700 5.600 8 1.900 6.600l3.700-1.400zM12.600 9.800l.7 1.800 1.800.7-1.800.7-.7 1.800-.7-1.800-1.800-.7 1.800-.7z"/></svg><span>AI repaint</span></span></button></span>
+        <span class="credit t">Imagery © Google</span>
+      </div>
+      <figcaption><b>Da Nang, Vietnam.</b> Gloss repainted nine pieces of writing on this menu board and left the phone number as it was.</figcaption>
+    </div></figure>
+    <figure class="g tile rp rp-wide"><div class="core">
+      <div class="media now" data-rp data-gloss="A slogan in Warsaw|Gloss repainted this Polish slogan in English.">
+        <img src="assets/rp-warsaw-after.webp" width="1320" height="644" loading="lazy" alt="A wall in Warsaw after a repaint. Under the green brand name ludwik, the slogan now reads in the same green lettering: Iconic quality, for generations.">
+        <img class="under" src="assets/rp-warsaw-before.webp" width="1320" height="644" loading="lazy" alt="">
+        <span class="caps"><button type="button" class="g pill badge" aria-pressed="false" aria-label="AI repaint: hold to see the original"><span class="blue"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M7 1.500l1.400 3.700 3.700 1.400-3.700 1.400L7 11.700 5.600 8 1.900 6.600l3.700-1.400zM12.600 9.800l.7 1.800 1.800.7-1.800.7-.7 1.800-.7-1.800-1.800-.7 1.800-.7z"/></svg><span>AI repaint</span></span></button></span>
+        <span class="credit t">Imagery © Google</span>
+      </div>
+      <figcaption><b>Warsaw, Poland.</b> The slogan under the brand name was <i>Kultowa jakość od pokoleń</i>. The brand name is not translated, so Gloss leaves it alone.</figcaption>
+    </div></figure>
+    <figure class="g tile rp rp-wide rp-osaka"><div class="core">
+      <div class="media now" data-rp data-gloss="A crab restaurant’s sign|Gloss repainted this Japanese sign in English.">
+        <img src="assets/repaint-after.webp" width="840" height="370" loading="lazy" alt="A shop front in Osaka after a repaint. The long cream sign now reads, in red lettering of the same style: Dotonbori specialty, charcoal-grilled crab.">
+        <img class="under" src="assets/repaint-before.webp" width="840" height="370" loading="lazy" alt="">
+        <span class="caps"><button type="button" class="g pill badge" aria-pressed="false" aria-label="AI repaint: hold to see the original"><span class="blue"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M7 1.500l1.400 3.700 3.700 1.400-3.700 1.400L7 11.700 5.600 8 1.900 6.600l3.700-1.400zM12.600 9.800l.7 1.800 1.800.7-1.800.7-.7 1.800-.7-1.800-1.800-.7 1.800-.7z"/></svg><span>AI repaint</span></span></button></span>
+        <span class="credit t">Imagery © Google</span>
+      </div>
+      <figcaption><b>Dotonbori, Osaka.</b> The sign of a crab restaurant, which was in Japanese.</figcaption>
+    </div></figure>
+  </div>
+  <div class="rptext">
+    <p>A repaint takes about 20 to 45 seconds, or up to two minutes if the first attempt fails its check and Gloss retries it.</p>
+    <p>A repaint must pass a check before Gloss shows it. Gloss reads the result back without the expected wording, and every word must match. Only the lettered lines and the areas immediately beside them come from the image model; the rest is Street View’s own picture. Gloss never shows a repaint that fails twice.</p>
+    <p class="hint">Each picture above changes between the original and the repaint a few times. You can press and hold an AI repaint badge to see the original again, as you can in Gloss.</p>
+  </div>
+</section>
+
+<section class="sec wash wrap" id="get">
   <div class="head">
     <p class="eyebrow">Gloss features</p>
     <h2>Answers beside the selected object</h2>
@@ -205,34 +248,10 @@
         </div>
       </div>
     </div></article>
-
-    <article class="g tile t-paint"><div class="core">
-      <div class="pair">
-        <div class="media was" data-gloss="A crab restaurant's sign|The sign is in Japanese before the repaint.">
-          <img src="assets/repaint-before.webp" width="840" height="370" loading="lazy" alt="A shop front in Osaka has red lanterns, and its long cream sign is in Japanese.">
-          <span class="tag">Before</span><span class="credit">Imagery © Google</span>
-        </div>
-        <div class="media now" id="repaint" data-gloss="The same sign, repainted|It shows Dotonbori specialty: charcoal-grilled crab. Hold the badge for the original.">
-          <img src="assets/repaint-after.webp" width="840" height="370" loading="lazy" alt="This is the same shop front after the repaint. The sign now reads, in red lettering of the same style: Dotonbori specialty, charcoal-grilled crab.">
-          <img class="under" src="assets/repaint-before.webp" width="840" height="370" loading="lazy" alt="">
-          <span class="tag">After</span>
-          <span class="caps">
-            <button type="button" class="g pill badge" id="hold" aria-pressed="false" aria-label="AI repaint: hold to see the original"><span class="blue"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M7 1.500l1.400 3.700 3.700 1.400-3.700 1.400L7 11.700 5.600 8 1.900 6.600l3.700-1.400zM12.600 9.800l.7 1.800 1.800.7-1.800.7-.7 1.800-.7-1.800-1.800-.7 1.800-.7z"/></svg><span>AI repaint</span></span></button>
-          </span>
-          <span class="credit">Imagery © Google</span>
-        </div>
-      </div>
-      <div class="text">
-        <h3>Repaint</h3>
-        <p>When you press the card’s Repaint button, Gloss sends the sign’s picture and the English to an image model, which paints the English onto the sign in the sign’s own style. Repaint works in any language, Vietnamese or Turkish as well as Japanese. It takes about 20 to 45 seconds, or up to two minutes if the first attempt fails its check and Gloss retries it.</p>
-        <p>A repaint must pass a check before Gloss shows it. Gloss reads the result back without the expected wording, and every word must match. Only the lettered lines and the areas immediately beside them come from the image model; the rest is Street View’s own picture. Gloss never shows a repaint that fails twice.</p>
-        <p class="hint">Press and hold the AI repaint badge to see the original. It works the same way in Gloss.</p>
-      </div>
-    </div></article>
   </div>
 </section>
 
-<section class="sec wash wrap" id="install">
+<section class="sec wash b wrap" id="install">
   <div class="head">
     <p class="eyebrow">Install</p>
     <h2>Six steps, by hand</h2>
@@ -271,7 +290,7 @@
   </div></div>
 </section>
 
-<section class="sec wash b wrap" id="keys">
+<section class="sec wash wrap" id="keys">
   <div class="keysec">
     <div class="say">
       <p class="eyebrow">Keys</p>
