@@ -123,7 +123,7 @@
   var notes = [];           // { els: [...] }
   var drag = null, usedAlt = false, openCard = null;
   var DROP = '<img class="drop" src="assets/gloss-16.svg" width="13" height="13" alt="">';
-  var RIGGED = 'This page is rigged: it only knows about itself. In Street View, Gloss reads whatever you box.';
+  var RIGGED = 'This page uses preset answers about itself. In Street View, Gloss reads any area you select.';
 
   function el(tag, cls, html) { var n = document.createElement(tag); n.className = cls; if (html != null) n.innerHTML = html; layer.appendChild(n); return n; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
