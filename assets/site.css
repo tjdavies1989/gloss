@@ -152,6 +152,7 @@ h2, .tagline, .defn, .head p, .shot > figcaption { text-wrap: balance; }
 .logo::after { content: ""; position: absolute; left: 6%; right: 2%; bottom: -26px; height: 38px; border-radius: 50%; background: radial-gradient(closest-side, rgba(96,214,255,.7), rgba(96,214,255,0)); filter: blur(4px); }
 .name { position: relative; display: inline-block; margin-top: 10px; }
 h1 { font-size: clamp(76px, 10vw, 124px); line-height: .98; font-weight: 700; letter-spacing: -.045em; padding-bottom: .06em;
+  padding-right: .08em; margin-right: -.08em; /* the tight letter-spacing pulls the box in past the last letter, and the gradient is only painted inside the box: without this room the final s loses its right edge */
   color: #0b3f8c; background: linear-gradient(180deg, #1565c8 0%, #0b3f8c 58%, #0a3270 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
 /* a gloss on the name: a note written beside it */
 .defn { position: absolute; left: calc(100% + 30px); bottom: 27%; width: 184px; padding-left: 13px; text-align: left; font-size: 14px; line-height: 1.4; font-weight: 500; color: var(--ink-2); }
